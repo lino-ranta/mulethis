@@ -26,6 +26,7 @@ namespace MuleThis
             /* INITIALISE THE STATE OF VIEW ELEMENTS HERE */
             chkFromMainOnly.Checked = pluginSettings.chkFromMainOnly;
             chkWeaponUntinkedOnly.Checked = pluginSettings.chkWeaponUntinkedOnly;
+            chkArmorUntinkedOnly.Checked = pluginSettings.chkArmorUntinkedOnly;
         }
     }
 
@@ -34,11 +35,13 @@ namespace MuleThis
         /* ADD PUBLIC PROPERTIES FOR PERSISTABLE SETTINGS HERE */
         public bool chkFromMainOnly;
         public bool chkWeaponUntinkedOnly;
+        public bool chkArmorUntinkedOnly;
 
         public PluginSettings()
         {
             chkFromMainOnly = true;
             chkWeaponUntinkedOnly = true;
+            chkArmorUntinkedOnly = true;
 
             /* SET DEFAULTS FOR THE PROPERTIES HERE */
         }

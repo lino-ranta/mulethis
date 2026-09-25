@@ -3,6 +3,7 @@ using Decal.Adapter.Wrappers;
 using MyClasses.MetaViewWrappers;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace MuleThis
 {
@@ -59,6 +60,17 @@ namespace MuleThis
         static MyClasses.MetaViewWrappers.ICheckBox chkWeaponUntinkedOnly;
         static MyClasses.MetaViewWrappers.IButton weaponSBtn;
         static MyClasses.MetaViewWrappers.IButton weaponTBtn;
+        static MyClasses.MetaViewWrappers.IStaticText armorStyleLbl;
+        static MyClasses.MetaViewWrappers.ICombo armorStyleCho;
+        static MyClasses.MetaViewWrappers.IStaticText armorMinWieldLbl;
+        static MyClasses.MetaViewWrappers.IStaticText armorMinWield;
+        static MyClasses.MetaViewWrappers.ISlider armorMinWieldSld;
+        static MyClasses.MetaViewWrappers.IStaticText armorMaxWieldLbl;
+        static MyClasses.MetaViewWrappers.IStaticText armorMaxWield;
+        static MyClasses.MetaViewWrappers.ISlider armorMaxWieldSld;
+        static MyClasses.MetaViewWrappers.ICheckBox chkArmorUntinkedOnly;
+        static MyClasses.MetaViewWrappers.IButton armorSBtn;
+        static MyClasses.MetaViewWrappers.IButton armorTBtn;
         static MyClasses.MetaViewWrappers.IStaticText byNameMatchLbl;
         static MyClasses.MetaViewWrappers.ITextBox byNameMatchTxt;
         static MyClasses.MetaViewWrappers.IStaticText byNameNoMatchLbl;
@@ -66,6 +78,7 @@ namespace MuleThis
         static MyClasses.MetaViewWrappers.IButton byNameSBtn;
         static MyClasses.MetaViewWrappers.IButton byNameTBtn;
         static MyClasses.MetaViewWrappers.IStaticText AboutText1;
+        static MyClasses.MetaViewWrappers.IStaticText AboutText2;
         static MyClasses.MetaViewWrappers.IStaticText UseAtOwnRisk;
         static MyClasses.MetaViewWrappers.INotebook nbkMain;
 
@@ -121,6 +134,17 @@ namespace MuleThis
             chkWeaponUntinkedOnly = (MyClasses.MetaViewWrappers.ICheckBox)View["chkWeaponUntinkedOnly"];
             weaponSBtn = (MyClasses.MetaViewWrappers.IButton)View["weaponSBtn"];
             weaponTBtn = (MyClasses.MetaViewWrappers.IButton)View["weaponTBtn"];
+            armorStyleLbl = (MyClasses.MetaViewWrappers.IStaticText)View["armorStyleLbl"];
+            armorStyleCho = (MyClasses.MetaViewWrappers.ICombo)View["armorStyleCho"];
+            armorMinWieldLbl = (MyClasses.MetaViewWrappers.IStaticText)View["armorMinWieldLbl"];
+            armorMinWield = (MyClasses.MetaViewWrappers.IStaticText)View["armorMinWield"];
+            armorMinWieldSld = (MyClasses.MetaViewWrappers.ISlider)View["armorMinWieldSld"];
+            armorMaxWieldLbl = (MyClasses.MetaViewWrappers.IStaticText)View["armorMaxWieldLbl"];
+            armorMaxWield = (MyClasses.MetaViewWrappers.IStaticText)View["armorMaxWield"];
+            armorMaxWieldSld = (MyClasses.MetaViewWrappers.ISlider)View["armorMaxWieldSld"];
+            chkArmorUntinkedOnly = (MyClasses.MetaViewWrappers.ICheckBox)View["chkArmorUntinkedOnly"];
+            armorSBtn = (MyClasses.MetaViewWrappers.IButton)View["armorSBtn"];
+            armorTBtn = (MyClasses.MetaViewWrappers.IButton)View["armorTBtn"];
             byNameMatchLbl = (MyClasses.MetaViewWrappers.IStaticText)View["byNameMatchLbl"];
             byNameMatchTxt = (MyClasses.MetaViewWrappers.ITextBox)View["byNameMatchTxt"];
             byNameNoMatchLbl = (MyClasses.MetaViewWrappers.IStaticText)View["byNameNoMatchLbl"];
@@ -128,6 +152,7 @@ namespace MuleThis
             byNameSBtn = (MyClasses.MetaViewWrappers.IButton)View["byNameSBtn"];
             byNameTBtn = (MyClasses.MetaViewWrappers.IButton)View["byNameTBtn"];
             AboutText1 = (MyClasses.MetaViewWrappers.IStaticText)View["AboutText1"];
+            AboutText2 = (MyClasses.MetaViewWrappers.IStaticText)View["AboutText2"];
             UseAtOwnRisk = (MyClasses.MetaViewWrappers.IStaticText)View["UseAtOwnRisk"];
             nbkMain = (MyClasses.MetaViewWrappers.INotebook)View["nbkMain"];
         }
@@ -182,6 +207,17 @@ namespace MuleThis
             chkWeaponUntinkedOnly = null;
             weaponSBtn = null;
             weaponTBtn = null;
+            armorStyleLbl = null;
+            armorStyleCho = null;
+            armorMinWieldLbl = null;
+            armorMinWield = null;
+            armorMinWieldSld = null;
+            armorMaxWieldLbl = null;
+            armorMaxWield = null;
+            armorMaxWieldSld = null;
+            chkArmorUntinkedOnly = null;
+            armorSBtn = null;
+            armorTBtn = null;
             byNameMatchLbl = null;
             byNameMatchTxt = null;
             byNameNoMatchLbl = null;
@@ -189,6 +225,7 @@ namespace MuleThis
             byNameSBtn = null;
             byNameTBtn = null;
             AboutText1 = null;
+            AboutText2 = null;
             UseAtOwnRisk = null;
             nbkMain = null;
             View.Dispose();
@@ -220,6 +257,13 @@ namespace MuleThis
                 materialCho.Add(kv.Key);
             }
 
+            GenerateArmorStyleInfo();
+            armorStyleCho.Clear();
+            foreach (KeyValuePair<string, Regex> kv in armorStyleRegex)
+            {
+                armorStyleCho.Add(kv.Key);
+            }
+
             foreach (IButton btn in (new List<IButton> { scrollsSBtn, moneySBtn, partialSBtn, fullSBtn, diSBtn, raresSBtn, level8SBtn }))
             {
                 btn.Hit += new EventHandler(btn_Hit);
@@ -238,6 +282,13 @@ namespace MuleThis
 
             weaponSBtn.Hit += new EventHandler(weaponBtn_Hit);
             weaponTBtn.Hit += new EventHandler(weaponBtn_Hit);
+
+            armorMinWieldSld.Change += new EventHandler<MVIndexChangeEventArgs>(workSld_Change);
+            armorMaxWieldSld.Change += new EventHandler<MVIndexChangeEventArgs>(workSld_Change);
+            armorMaxWieldSld.Position = 275;
+
+            armorSBtn.Hit += new EventHandler(armorBtn_Hit);
+            armorTBtn.Hit += new EventHandler(armorBtn_Hit);
 
             byNameSBtn.Hit += new EventHandler(byNameBtn_Hit);
             byNameTBtn.Hit += new EventHandler(byNameBtn_Hit);
@@ -265,6 +316,15 @@ namespace MuleThis
             }
         }
 
+        void chkArmorUntinkedOnly_Change(object sender, MVCheckBoxChangeEventArgs e)
+        {
+            if (pluginSettings != null)
+            {
+                //pluginSettings.chkArmorUntinkedOnly = chkArmorUntinkedOnly.Checked;
+                saveSettings();
+            }
+        }
+
         void chkFromMainOnly_Change(object sender, MVCheckBoxChangeEventArgs e)
         {
             if (pluginSettings != null)
@@ -286,6 +346,12 @@ namespace MuleThis
             handItems(t, prepareHandWeapons);
         }
 
+        void armorBtn_Hit(object sender, EventArgs e)
+        {
+            MuleTarget t = ((IButton)sender).Id == armorSBtn.Id ? targetS : targetT;
+            handItems(t, prepareHandArmor);
+        }
+
         void workSld_Change(object sender, MVIndexChangeEventArgs e)
         {
             ViewUpdateTexts();
@@ -304,7 +370,7 @@ namespace MuleThis
             {
                 MuleTarget oldTarget = targetS;
                 targetT = new MuleTarget(MuleTargetType.ManualTarget, wo.Id, wo.Name);
-                onTargetChange(oldTarget);             
+                onTargetChange(oldTarget);
             }
         }
 
@@ -351,7 +417,7 @@ namespace MuleThis
             else if (btn.Id == trophiesSBtn.Id)
             {
                 handItems(getGarbage(), prepareHandTrophies);
-            }            
+            }
             else if (btn.Id == scrollsTBtn.Id)
             {
                 handItems(targetT, prepareHandScrolls);
@@ -379,13 +445,16 @@ namespace MuleThis
             else if (btn.Id == diTBtn.Id)
             {
                 handItems(targetT, prepareHandDITrophies);
-            }            
+            }
         }
 
         void ViewUpdateTexts()
         {
             target.Text = targetT == null ? NOTARGET : targetT.Name;
             quicktarget.Text = targetS == null ? NOTARGET : targetS.Name;
+
+            armorMinWield.Text = String.Format("{0}", armorMinWieldSld.Position);
+            armorMaxWield.Text = String.Format("{0}", armorMaxWieldSld.Position);
 
             minwork.Text = String.Format("{0}", minworkSld.Position);
             maxwork.Text = String.Format("{0}", maxworkSld.Position);

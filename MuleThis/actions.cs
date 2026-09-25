@@ -164,7 +164,7 @@ namespace MuleThis
                         if (itemIsGiveable(wo, currentTarget)) itemsToHand.Add(wo.Id);
                     }
                 }
-            }            
+            }
         }
 
         void prepareHandDITrophies()
@@ -179,8 +179,8 @@ namespace MuleThis
                         itemsToHand.Add(wo.Id);
                     }
                 }
-            }            
-        }        
+            }
+        }
 
         void prepareHandRares()
         {
@@ -222,8 +222,8 @@ namespace MuleThis
                 return;
             }
             try
-            {               
-                Regex p = new Regex(s, RegexOptions.IgnoreCase);               
+            {
+                Regex p = new Regex(s, RegexOptions.IgnoreCase);
                 try
                 {
                     s = byNameNoMatchTxt.Text == null ? null : byNameNoMatchTxt.Text.Trim();
@@ -242,12 +242,12 @@ namespace MuleThis
                 catch (System.ArgumentException ex)
                 {
                     WriteToChat(String.Format("Could not convert {0} to a regular expression.", byNameNoMatchTxt.Text));
-                }               
+                }
             }
             catch (System.ArgumentException ex)
             {
                 WriteToChat(String.Format("Could not convert {0} to a regular expression.", byNameMatchTxt.Text));
-            }            
+            }
         }
 
         void prepareHandWeapons()
@@ -268,7 +268,39 @@ namespace MuleThis
                         if (!chkWeaponUntinkedOnly.Checked || wo.Values(LongValueKey.NumberTimesTinkered, 0) < 1)
                         {
                             itemsToHand.Add(wo.Id);
-                        }                        
+                        }
+                    }
+                }
+            }
+
+        }
+
+        void prepareHandArmor()
+        {
+            itemsToHand.Clear();
+
+            string armorStyleKey = armorStyleCho.Text[armorStyleCho.Selected];
+            Regex matcher = armorStyleRegex.ContainsKey(armorStyleKey) ? armorStyleRegex[armorStyleKey] : new Regex("*");
+
+            //WriteToChat(string.Format("{0} {1} {2}", armorStyleCho.Selected, armorStyleKey, matcher));
+
+            foreach (WorldObject wo in Core.WorldFilter.GetInventory())
+            {
+                if (itemIsArmor(wo))
+                {
+                    if (isInAllowedPack(wo))
+                    {
+                        if (!chkArmorUntinkedOnly.Checked || wo.Values(LongValueKey.NumberTimesTinkered, 0) < 1)
+                        {
+                            if (matcher.IsMatch(wo.Name))
+                            {
+                                int wieldReq = wo.Values(LongValueKey.WieldReqType, 0) == 7 ? wo.Values(LongValueKey.WieldReqValue, 0) : 0;
+                                if (wieldReq >= armorMinWieldSld.Position && wieldReq <= armorMaxWieldSld.Position)
+                                {
+                                    itemsToHand.Add(wo.Id);
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -296,8 +328,11 @@ namespace MuleThis
 
         private bool isInAllowedPack(WorldObject wo)
         {
-            return (chkFromMainOnly.Checked ? itemContainerIsChar(wo) : true) && wo.Values(LongValueKey.EquippedSlots, 0) == 0
-                && wo.Values(LongValueKey.Attuned, -1) < 1;
+            return (chkFromMainOnly.Checked ? itemContainerIsChar(wo) : true)
+                && wo.ObjectClass != ObjectClass.Foci
+                && wo.Values(LongValueKey.EquippedSlots, 0) == 0
+                && wo.Values(LongValueKey.Attuned, 0) < 1
+                && wo.Values(LongValueKey.Bonded, 0) < 1;
         }
 
     }

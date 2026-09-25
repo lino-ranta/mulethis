@@ -3,6 +3,7 @@ using Decal.Adapter.Wrappers;
 using System.Collections.Generic;
 using System.Text;
 using System;
+using System.Text.RegularExpressions;
 
 namespace MuleThis
 {
@@ -14,15 +15,17 @@ namespace MuleThis
         {
             if (dmgIds == null)
             {
-                dmgIds = new SortedDictionary<string, int>();
-                dmgIds.Add("Slash", 1);
-                dmgIds.Add("Pierce", 2);
-                dmgIds.Add("Bludgeon", 4);
-                dmgIds.Add("Frost", 8);
-                dmgIds.Add("Fire", 16);
-                dmgIds.Add("Acid", 32);
-                dmgIds.Add("Light", 64);
-                dmgIds.Add("Nether", 1024);
+                dmgIds = new SortedDictionary<string, int>
+                {
+                    { "Slash", 1 },
+                    { "Pierce", 2 },
+                    { "Bludgeon", 4 },
+                    { "Frost", 8 },
+                    { "Fire", 16 },
+                    { "Acid", 32 },
+                    { "Light", 64 },
+                    { "Nether", 1024 }
+                };
 
                 dmgNames = new SortedDictionary<int, string>();
                 foreach (KeyValuePair<string, int> kp in dmgIds)
@@ -67,15 +70,16 @@ namespace MuleThis
         {
             if (wSkillIds == null)
             {
-                wSkillIds = new SortedDictionary<string, int>();
-               
-                wSkillIds.Add("War", 34);
-                wSkillIds.Add("2H", 41);
-                wSkillIds.Add("Void", 43);
-                wSkillIds.Add("HW", 44);
-                wSkillIds.Add("LW", 45);
-                wSkillIds.Add("FW", 46);
-                wSkillIds.Add("MissileW", 47);
+                wSkillIds = new SortedDictionary<string, int>
+                {
+                    { "War", 34 },
+                    { "2H", 41 },
+                    { "Void", 43 },
+                    { "HW", 44 },
+                    { "LW", 45 },
+                    { "FW", 46 },
+                    { "MissileW", 47 }
+                };
 
                 wSkillNames = new SortedDictionary<int, string>();
                 foreach (KeyValuePair<string, int> kp in wSkillIds)
@@ -109,79 +113,81 @@ namespace MuleThis
         {
             if (matIds == null)
             {
-                matIds = new SortedDictionary<string, int>();
-                matIds.Add("Agate", 10);
-                matIds.Add("Alabaster", 66);
-                matIds.Add("Amber", 11);
-                matIds.Add("Amethyst", 12);
-                matIds.Add("Aquamarine", 13);
-                matIds.Add("Armoredillo Hide", 53);
-                matIds.Add("Azurite", 14);
-                matIds.Add("Black Garnet", 15);
-                matIds.Add("Black Opal", 16);
-                matIds.Add("Bloodstone", 17);
-                matIds.Add("Brass", 57);
-                matIds.Add("Bronze", 58);
-                matIds.Add("Carnelian", 18);
-                matIds.Add("Ceramic", 1);
-                matIds.Add("Citrine", 19);
-                matIds.Add("Copper", 59);
-                matIds.Add("Diamond", 20);
-                matIds.Add("Ebony", 73);
-                matIds.Add("Emerald", 21);
-                matIds.Add("Fire Opal", 22);
-                matIds.Add("Gold", 60);
-                matIds.Add("Granite", 67);
-                matIds.Add("Green Garnet", 23);
-                matIds.Add("Green Jade", 24);
-                matIds.Add("Gromnie Hide", 54);
-                matIds.Add("Hematite", 25);
-                matIds.Add("Imperial Topaz", 26);
-                matIds.Add("Iron", 61);
-                matIds.Add("Ivory", 51);
-                matIds.Add("Jet", 27);
-                matIds.Add("Lapis Lazuli", 28);
-                matIds.Add("Lavender Jade", 29);
-                matIds.Add("Leather", 52);
-                matIds.Add("Linen", 4);
-                matIds.Add("Mahogany", 74);
-                matIds.Add("Malachite", 30);
-                matIds.Add("Marble", 68);
-                matIds.Add("Moonstone", 31);
-                matIds.Add("Oak", 75);
-                matIds.Add("Obsidian", 69);
-                matIds.Add("Onyx", 32);
-                matIds.Add("Opal", 33);
-                matIds.Add("Peridot", 34);
-                matIds.Add("Pine", 76);
-                matIds.Add("Porcelain", 2);
-                matIds.Add("Pyreal", 62);
-                matIds.Add("Red Garnet", 35);
-                matIds.Add("Red Jade", 36);
-                matIds.Add("Reed Shark Hide", 55);
-                matIds.Add("Rose Quartz", 37);
-                matIds.Add("Ruby", 38);
-                matIds.Add("Sandstone", 70);
-                matIds.Add("Sapphire", 39);
-                matIds.Add("Satin", 5);
-                matIds.Add("Serpentine", 71);
-                matIds.Add("Silk", 6);
-                matIds.Add("Silver", 63);
-                matIds.Add("Smokey Quartz", 40);
-                matIds.Add("Steel", 64);
-                matIds.Add("Sunstone", 41);
-                matIds.Add("Teak", 77);
-                matIds.Add("Tiger Eye", 42);
-                matIds.Add("Tourmaline", 43);
-                matIds.Add("Turquoise", 44);
-                matIds.Add("Velvet", 7);
-                matIds.Add("White Jade", 45);
-                matIds.Add("White Quartz", 46);
-                matIds.Add("White Sapphire", 47);
-                matIds.Add("Wool", 8);
-                matIds.Add("Yellow Garnet", 48);
-                matIds.Add("Yellow Topaz", 49);
-                matIds.Add("Zircon", 50);
+                matIds = new SortedDictionary<string, int>
+                {
+                    { "Agate", 10 },
+                    { "Alabaster", 66 },
+                    { "Amber", 11 },
+                    { "Amethyst", 12 },
+                    { "Aquamarine", 13 },
+                    { "Armoredillo Hide", 53 },
+                    { "Azurite", 14 },
+                    { "Black Garnet", 15 },
+                    { "Black Opal", 16 },
+                    { "Bloodstone", 17 },
+                    { "Brass", 57 },
+                    { "Bronze", 58 },
+                    { "Carnelian", 18 },
+                    { "Ceramic", 1 },
+                    { "Citrine", 19 },
+                    { "Copper", 59 },
+                    { "Diamond", 20 },
+                    { "Ebony", 73 },
+                    { "Emerald", 21 },
+                    { "Fire Opal", 22 },
+                    { "Gold", 60 },
+                    { "Granite", 67 },
+                    { "Green Garnet", 23 },
+                    { "Green Jade", 24 },
+                    { "Gromnie Hide", 54 },
+                    { "Hematite", 25 },
+                    { "Imperial Topaz", 26 },
+                    { "Iron", 61 },
+                    { "Ivory", 51 },
+                    { "Jet", 27 },
+                    { "Lapis Lazuli", 28 },
+                    { "Lavender Jade", 29 },
+                    { "Leather", 52 },
+                    { "Linen", 4 },
+                    { "Mahogany", 74 },
+                    { "Malachite", 30 },
+                    { "Marble", 68 },
+                    { "Moonstone", 31 },
+                    { "Oak", 75 },
+                    { "Obsidian", 69 },
+                    { "Onyx", 32 },
+                    { "Opal", 33 },
+                    { "Peridot", 34 },
+                    { "Pine", 76 },
+                    { "Porcelain", 2 },
+                    { "Pyreal", 62 },
+                    { "Red Garnet", 35 },
+                    { "Red Jade", 36 },
+                    { "Reed Shark Hide", 55 },
+                    { "Rose Quartz", 37 },
+                    { "Ruby", 38 },
+                    { "Sandstone", 70 },
+                    { "Sapphire", 39 },
+                    { "Satin", 5 },
+                    { "Serpentine", 71 },
+                    { "Silk", 6 },
+                    { "Silver", 63 },
+                    { "Smokey Quartz", 40 },
+                    { "Steel", 64 },
+                    { "Sunstone", 41 },
+                    { "Teak", 77 },
+                    { "Tiger Eye", 42 },
+                    { "Tourmaline", 43 },
+                    { "Turquoise", 44 },
+                    { "Velvet", 7 },
+                    { "White Jade", 45 },
+                    { "White Quartz", 46 },
+                    { "White Sapphire", 47 },
+                    { "Wool", 8 },
+                    { "Yellow Garnet", 48 },
+                    { "Yellow Topaz", 49 },
+                    { "Zircon", 50 }
+                };
 
                 matNames = new SortedDictionary<int, string>();
                 foreach (KeyValuePair<string, int> kp in matIds)
@@ -220,5 +226,36 @@ namespace MuleThis
             }
             return level8Comps;
         }
+
+        static SortedDictionary<string, Regex> armorStyleRegex;
+        static void GenerateArmorStyleInfo()
+        {
+            if (armorStyleRegex == null)
+            {
+                armorStyleRegex = new SortedDictionary<string, Regex>
+                {
+                    { "<any>", new Regex(".*") },
+                    { "Alduressa", new Regex("((?!Olthoi).)* Alduressa .*$") },
+                    { "Amuli", new Regex("((?!Olthoi).)* Amuli .*$") },
+                    { "Celdon", new Regex("^((?!Olthoi).)* Celdon .*$") },
+                    { "Chainmail", new Regex("^[A-Za-z ]*Chainmail ") },
+                    { "Chiran", new Regex("^[A-Za-z ]*Chiran ") },
+                    { "Diforsa", new Regex("^[A-Za-z ]*Diforsa ") },
+                    { "Haebrean", new Regex("^[A-Za-z ]*Haebrean ") },
+                    { "Koujia", new Regex("^[A-Za-z ]*Koujia ") },
+                    { "Lorica", new Regex("^[A-Za-z ]*Lorica ") },
+                    { "Nariyid", new Regex("^[A-Za-z ]*Nariyid ") },
+                    { "Platemail", new Regex("^[A-Za-z ]*Platemail ") },
+                    { "Scalemail", new Regex("^[A-Za-z ]*Scalemail ") },
+                    { "Tenassa", new Regex("^[A-Za-z ]*Tenassa ") },
+                    { "Studded Leather", new Regex("^[A-Za-z ]*Studded Leather ") },
+                    { "Yoroi", new Regex("^[A-Za-z ]*Yoroi ") },
+                    { "Olthoi Amuli", new Regex("^Olthoi Amuli ") },
+                    { "Olthoi Alduressa", new Regex("^Olthoi Alduressa ") },
+                    { "Olthoi Celdon", new Regex("^Olthoi Celdon ") }
+                };
+            }
+        }
+
     }
 }

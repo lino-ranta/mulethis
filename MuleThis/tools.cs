@@ -110,6 +110,11 @@ namespace MuleThis
             return false;
         }
 
+        bool itemIsArmor(WorldObject wo)
+        {
+            return wo != null && (wo.ObjectClass == ObjectClass.Armor);
+        }
+
         private bool canDoDamage(WorldObject wo, int damageType)
         {
             if (damageType == 0) return true;
