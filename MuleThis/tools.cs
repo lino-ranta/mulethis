@@ -186,7 +186,7 @@ namespace MuleThis
                     "Glyph of Recklessness", "Glyph of Regeneration", "Glyph of Run",
                     "Glyph of Salvaging", "Glyph of Self", "Glyph of Slashing", "Glyph of Shield",
                     "Glyph of Sneak Attack", "Glyph of Stamina", "Glyph of Stamina Regeneration",
-                    "Glyph of Strength", "Glyph of Two Handed Combat",
+                    "Glyph of Strength", "Glyph of Summoning", "Glyph of Two Handed Combat",
                     "Glyph of Void Magic", "Glyph of War Magic", "Glyph of Weapon Tinkering"
                 };
             }
