@@ -2,6 +2,7 @@
 using Decal.Adapter.Wrappers;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text.RegularExpressions;
 
 namespace MuleThis
@@ -330,9 +331,9 @@ namespace MuleThis
         {
             return (chkFromMainOnly.Checked ? itemContainerIsChar(wo) : true)
                 && wo.ObjectClass != ObjectClass.Foci
+                && wo.ObjectClass != ObjectClass.Container
                 && wo.Values(LongValueKey.EquippedSlots, 0) == 0
-                && wo.Values(LongValueKey.Attuned, 0) < 1
-                && wo.Values(LongValueKey.Bonded, 0) < 1;
+                && wo.Values(LongValueKey.Attuned, -1) < 1;
         }
 
     }
