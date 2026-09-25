@@ -1,0 +1,17 @@
+﻿====Releases====
+=== v1.3.1 ===
+Release Date: 2012-06-22
+Release Notes:
+	Fixed support for level 8 spell components
+Installer: <http://ac.ranta.info/installer/MuleThis-1.3.1.msi>
+Known Bugs: -
+Compiled against Decal Version: 2.9.6.7 [will not work with older versions of Decal]
+
+=== v1.3.0 ===
+Release Date: 2012-03-24
+Release Notes:
+	Requires Decal 2.9.6.5
+	Fixed several potential exceptions
+	Added support for new weapon skills (support for mastery still pending)
+Installer: <http://ac.ranta.info/installer/MuleThis-1.3.0.msi>
+Known Bugs: None

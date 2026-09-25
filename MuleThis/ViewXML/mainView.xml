@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<view icon="7087" title="MuleThis" width="232" height="412">
+		<control progid="DecalControls.FixedLayout" clipped="">
+			<control progid="DecalControls.FixedLayout" clipped="" left="0" top="0" width="240" height="120">
+				<control progid="DecalControls.PushButton" name="targetBtn" left="16" top="8" width="56" height="16" textcolor="16777215" text="Target"/>
+				<control progid="DecalControls.StaticText" name="target" left="88" top="10" width="132" height="16" text="-NONE-"/>
+				<control progid="DecalControls.StaticText" name="quicktargetLbl" left="16" top="32" width="56" height="16" textcolor="65535" text="Quicktarget"/>
+				<control progid="DecalControls.StaticText" name="quicktarget" left="88" top="32" width="132" height="16" text="-NONE-"/>
+				<control progid="DecalControls.PushButton" name="CancelAllBtn" left="16" top="56" width="200" height="16" textcolor="255" text="STOP!"/>
+				<control progid="DecalControls.Checkbox" name="chkFromMainOnly" left="16" top="88" width="200" height="24" text="Only items from main pack"/>
+			</control>
+
+			<control progid="DecalControls.Notebook" name="nbkMain" left="0" top="128" width="232" height="280">
+			<page label="Main">
+				<control progid="DecalControls.FixedLayout" clipped="">
+					<control progid="DecalControls.StaticText" name="scrollsLbl" left="8" top="8" width="80" height="16" text="Scrolls"/>
+					<control progid="DecalControls.PushButton" name="scrollsSBtn" left="88" top="8" width="64" height="16" text="Quicktarget"/>
+					<control progid="DecalControls.PushButton" name="scrollsTBtn" left="168" top="8" width="48" height="16" textcolor="16777215" text="Target"/>
+					<control progid="DecalControls.StaticText" name="moneyLbl" left="8" top="32" width="80" height="16" text="Money"/>
+					<control progid="DecalControls.PushButton" name="moneySBtn" left="88" top="32" width="64" height="16" text="Quicktarget"/>
+					<control progid="DecalControls.PushButton" name="moneyTBtn" left="168" top="32" width="48" height="16" textcolor="16777215" text="Target"/>
+					<control progid="DecalControls.StaticText" name="partialLbl" left="8" top="56" width="80" height="16" text="Partial Salvage"/>
+					<control progid="DecalControls.PushButton" name="partialSBtn" left="88" top="56" width="64" height="16" text="Quicktarget"/>
+					<control progid="DecalControls.PushButton" name="partialTBtn" left="168" top="56" width="48" height="16" textcolor="16777215" text="Target"/>
+					<control progid="DecalControls.StaticText" name="fullLbl" left="8" top="80" width="72" height="16" text="Full Salvage"/>
+					<control progid="DecalControls.PushButton" name="fullSBtn" left="88" top="80" width="64" height="16" text="Quicktarget"/>
+					<control progid="DecalControls.PushButton" name="fullTBtn" left="168" top="80" width="48" height="16" textcolor="16777215" text="Target"/>
+					<control progid="DecalControls.StaticText" name="raresLbl" left="8" top="104" width="80" height="16" text="Rares"/>
+					<control progid="DecalControls.PushButton" name="raresSBtn" left="88" top="104" width="64" height="16" text="Quicktarget"/>
+					<control progid="DecalControls.PushButton" name="raresTBtn" left="168" top="104" width="48" height="16" textcolor="16777215" text="Target"/>
+					<control progid="DecalControls.StaticText" name="level8Lbl" left="8" top="128" width="80" height="16" text="Level 8 Comps"/>
+					<control progid="DecalControls.PushButton" name="level8SBtn" left="88" top="128" width="64" height="16" text="Quicktarget"/>
+					<control progid="DecalControls.PushButton" name="level8TBtn" left="168" top="128" width="48" height="16" textcolor="16777215" text="Target"/>
+					<control progid="DecalControls.StaticText" name="diLbl" left="8" top="152" width="80" height="16" text="DI Trophies"/>
+					<control progid="DecalControls.PushButton" name="diSBtn" left="88" top="152" width="64" height="16" text="Quicktarget"/>
+					<control progid="DecalControls.PushButton" name="diTBtn" left="168" top="152" width="48" height="16" textcolor="16777215" text="Target"/>
+					<control progid="DecalControls.StaticText" name="tokensLbl" left="8" top="176" width="72" height="16" text="Colo Tokens"/>
+					<control progid="DecalControls.PushButton" name="tokensSBtn" left="88" top="176" width="128" height="16" textcolor="0" text="Arbitrator"/>
+					<control progid="DecalControls.StaticText" name="trophiesLbl" left="8" top="200" width="72" height="16" text="Colo Trophies"/>
+					<control progid="DecalControls.PushButton" name="trophiesSBtn" left="88" top="200" width="128" height="16" textcolor="0" text="Garbage Barrel"/>
+				</control>
+
+			</page>
+        <page label="Salvage">
+          <control progid="DecalControls.FixedLayout" clipped="">
+            <control progid="DecalControls.StaticText" name="materialLbl" left="16" top="8" width="200" height="16" text="Material"/>
+            <control progid="DecalControls.Choice" name="materialCho" left="16" top="28" width="200" height="19"/>
+            <control progid="DecalControls.StaticText" name="minworkLbl" left="16" top="56" width="120" height="16" text="Minimum workmanship"/>
+            <control progid="DecalControls.StaticText" name="minwork" left="160" top="56" width="32" height="16" text=""/>
+            <control progid="DecalControls.Slider" name="minworkSld" left="16" top="76" width="200" height="16" minimum="1" maximum="10" textcolor="0" vertical="0"/>
+            <control progid="DecalControls.StaticText" name="maxworkLbl" left="16" top="100" width="120" height="16" text="Maximum workmanship"/>
+            <control progid="DecalControls.StaticText" name="maxwork" left="160" top="100" width="32" height="16" text=""/>
+            <control progid="DecalControls.Slider" name="maxworkSld" left="16" top="120" width="200" height="16" minimum="1" maximum="10" textcolor="0" vertical="0"/>
+            <control progid="DecalControls.PushButton" name="slvgSBtn" left="16" top="152" width="80" height="16" text="Quicktarget"/>
+            <control progid="DecalControls.PushButton" name="slvgTBtn" left="136" top="152" width="80" height="16" textcolor="16777215" text="Target"/>
+          </control>
+
+        </page>
+        <page label="Weapons">
+          <control progid="DecalControls.FixedLayout" clipped="">
+            <control progid="DecalControls.StaticText" name="weaponSkillLbl" left="16" top="8" width="200" height="16" text="Weapon Type"/>
+            <control progid="DecalControls.Choice" name="weaponSkillCho" left="16" top="28" width="200" height="19"/>
+            <control progid="DecalControls.StaticText" name="weaponDmgLbl" left="16" top="56" width="200" height="16" text="Damage Type"/>
+            <control progid="DecalControls.Choice" name="weaponDmgCho" left="16" top="76" width="200" height="19"/>
+            <control progid="DecalControls.Checkbox" name="chkWeaponUntinkedOnly" left="16" top="96" width="200" height="24" text="Untinked only"/>
+            <control progid="DecalControls.PushButton" name="weaponSBtn" left="16" top="152" width="80" height="16" text="Quicktarget"/>
+            <control progid="DecalControls.PushButton" name="weaponTBtn" left="136" top="152" width="80" height="16" textcolor="16777215" text="Target"/>
+          </control>
+
+        </page>
+        <page label="by Name">
+          <control progid="DecalControls.FixedLayout" clipped="">
+            <control progid="DecalControls.StaticText" name="byNameMatchLbl" left="16" top="8" width="200" height="16" text="Name matches"/>
+            <control progid="DecalControls.Edit" name="byNameMatchTxt" left="16" top="28" width="200" height="16" imageportalsrc="4726" text=""/>
+            <control progid="DecalControls.StaticText" name="byNameNoMatchLbl" left="16" top="56" width="200" height="16" text="Name does not match"/>
+            <control progid="DecalControls.Edit" name="byNameNoMatchTxt" left="16" top="76" width="200" height="16" imageportalsrc="4726" text=""/>
+
+            <control progid="DecalControls.PushButton" name="byNameSBtn" left="16" top="152" width="80" height="16" text="Quicktarget"/>
+            <control progid="DecalControls.PushButton" name="byNameTBtn" left="136" top="152" width="80" height="16" textcolor="16777215" text="Target"/>
+          </control>
+
+        </page>
+			<page label="About">
+				<control progid="DecalControls.FixedLayout" clipped="">
+					<control progid="DecalControls.StaticText" name="AboutText1" left="16" top="20" width="208" height="60" justify="Center" fontface="Times New Roman" fontsize="16" fontstyle="" text="MuleThis was written by lino."/>
+					<control progid="DecalControls.StaticText" name="UseAtOwnRisk" left="16" top="120" width="208" height="72" textcolor="192" justify="Center" fontface="Times New Roman" fontsize="18" fontstyle=" bold" text="USE AT YOUR OWN RISK!"/>
+				</control>
+
+			</page>
+			</control>
+
+		</control>
+
+</view>
