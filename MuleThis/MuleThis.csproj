@@ -84,7 +84,6 @@
     <Compile Include="ViewServiceConnector\Wrapper_Decal.cs" />
     <Compile Include="ViewServiceConnector\Wrapper_MyHuds.cs" />
     <Compile Include="worldFilter.cs" />
-    <Compile Include="WorldObjectMatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ViewXML\mainView.xml">
