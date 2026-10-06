@@ -2,7 +2,6 @@
 using Decal.Adapter.Wrappers;
 using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Text.RegularExpressions;
 
 namespace MuleThis
@@ -266,7 +265,7 @@ namespace MuleThis
                 {
                     if (isInAllowedPack(wo))
                     {
-                        if (!chkWeaponUntinkedOnly.Checked || wo.Values(LongValueKey.NumberTimesTinkered, 0) < 1)
+                        if (!weaponUntinkedOnlyChk.Checked || wo.Values(LongValueKey.NumberTimesTinkered, 0) < 1)
                         {
                             itemsToHand.Add(wo.Id);
                         }
@@ -281,7 +280,7 @@ namespace MuleThis
             itemsToHand.Clear();
 
             string armorStyleKey = armorStyleCho.Text[armorStyleCho.Selected];
-            Regex matcher = armorStyleRegex.ContainsKey(armorStyleKey) ? armorStyleRegex[armorStyleKey] : new Regex("*");
+            Regex matcher = armorStyleRegex.ContainsKey(armorStyleKey) ? armorStyleRegex[armorStyleKey] : new Regex(".*");
 
             //WriteToChat(string.Format("{0} {1} {2}", armorStyleCho.Selected, armorStyleKey, matcher));
 
@@ -291,7 +290,7 @@ namespace MuleThis
                 {
                     if (isInAllowedPack(wo))
                     {
-                        if (!chkArmorUntinkedOnly.Checked || wo.Values(LongValueKey.NumberTimesTinkered, 0) < 1)
+                        if (!armorUntinkedOnlyChk.Checked || wo.Values(LongValueKey.NumberTimesTinkered, 0) < 1)
                         {
                             if (matcher.IsMatch(wo.Name))
                             {
@@ -305,7 +304,35 @@ namespace MuleThis
                     }
                 }
             }
+        }
 
+        void prepareHandAccs()
+        {
+            itemsToHand.Clear();
+
+            string accsStyleKey = accsStyleCho.Text[accsStyleCho.Selected];
+
+            //WriteToChat(string.Format("{0} {1}", accsStyleCho.Selected, accsStyleKey));
+
+            WorldObjectMatcher matcher = new AccessoryWorldObjectMatcher(accsStyleKey);
+
+            foreach (WorldObject wo in Core.WorldFilter.GetInventory())
+            {
+                if (isInAllowedPack(wo))
+                {
+                    if (!accsUntinkedOnlyChk.Checked || wo.Values(LongValueKey.NumberTimesTinkered, 0) < 1)
+                    {
+                        if (matcher.IsMatch(wo))
+                        {
+                            int wieldReq = wo.Values(LongValueKey.WieldReqType, 0) == 7 ? wo.Values(LongValueKey.WieldReqValue, 0) : 0;
+                            if (wieldReq >= accsMinWieldSld.Position && wieldReq <= accsMaxWieldSld.Position)
+                            {
+                                itemsToHand.Add(wo.Id);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         void prepareHandSalvage()
@@ -329,11 +356,11 @@ namespace MuleThis
 
         private bool isInAllowedPack(WorldObject wo)
         {
-            return (chkFromMainOnly.Checked ? itemContainerIsChar(wo) : true)
+            return (fromMainOnlyChk.Checked ? itemContainerIsChar(wo) : true)
                 && wo.ObjectClass != ObjectClass.Foci
                 && wo.ObjectClass != ObjectClass.Container
                 && wo.Values(LongValueKey.EquippedSlots, 0) == 0
-                && wo.Values(LongValueKey.Attuned, -1) < 1;
+                && wo.Values(LongValueKey.Attuned, 0) < 1; ;
         }
 
     }

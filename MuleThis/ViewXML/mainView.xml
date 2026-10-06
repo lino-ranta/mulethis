@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<view icon="7087" title="MuleThis" width="282" height="412">
+<view icon="7087" title="MuleThis" width="333" height="412">
 	<control progid="DecalControls.FixedLayout" clipped="">
 		<control progid="DecalControls.FixedLayout" clipped="" left="0" top="0" width="240" height="120">
 			<control progid="DecalControls.PushButton" name="targetBtn" left="16" top="8" width="56" height="16" textcolor="16777215" text="Target" />
@@ -7,10 +7,10 @@
 			<control progid="DecalControls.StaticText" name="quicktargetLbl" left="16" top="32" width="56" height="16" textcolor="65535" text="Quicktarget" />
 			<control progid="DecalControls.StaticText" name="quicktarget" left="88" top="32" width="132" height="16" text="-NONE-" />
 			<control progid="DecalControls.PushButton" name="CancelAllBtn" left="16" top="56" width="200" height="16" textcolor="255" text="STOP!" />
-			<control progid="DecalControls.Checkbox" name="chkFromMainOnly" left="16" top="88" width="200" height="24" text="Only items from main pack" />
+			<control progid="DecalControls.Checkbox" name="fromMainOnlyChk" left="16" top="88" width="200" height="24" text="Only items from main pack" />
 		</control>
 
-		<control progid="DecalControls.Notebook" name="nbkMain" left="0" top="128" width="282" height="280">
+		<control progid="DecalControls.Notebook" name="nbkMain" left="0" top="128" width="333" height="280">
 			<page label="Main">
 				<control progid="DecalControls.FixedLayout" clipped="">
 					<control progid="DecalControls.StaticText" name="scrollsLbl" left="8" top="8" width="80" height="16" text="Scrolls" />
@@ -62,7 +62,7 @@
 					<control progid="DecalControls.Choice" name="weaponSkillCho" left="16" top="28" width="200" height="19" />
 					<control progid="DecalControls.StaticText" name="weaponDmgLbl" left="16" top="56" width="200" height="16" text="Damage Type" />
 					<control progid="DecalControls.Choice" name="weaponDmgCho" left="16" top="76" width="200" height="19" />
-					<control progid="DecalControls.Checkbox" name="chkWeaponUntinkedOnly" left="16" top="136" width="200" height="24" text="Untinked only" />
+					<control progid="DecalControls.Checkbox" name="weaponUntinkedOnlyChk" left="16" top="136" width="200" height="24" text="Untinked only" />
 					<control progid="DecalControls.PushButton" name="weaponSBtn" left="16" top="168" width="80" height="16" text="Quicktarget" />
 					<control progid="DecalControls.PushButton" name="weaponTBtn" left="136" top="168" width="80" height="16" textcolor="16777215" text="Target" />
 				</control>
@@ -78,9 +78,26 @@
 					<control progid="DecalControls.StaticText" name="armorMaxWieldLbl" left="16" top="100" width="120" height="16" text="Maximum lvl wield req" />
 					<control progid="DecalControls.StaticText" name="armorMaxWield" left="160" top="100" width="32" height="16" text="" />
 					<control progid="DecalControls.Slider" name="armorMaxWieldSld" left="16" top="120" width="200" height="16" minimum="1" maximum="275" textcolor="0" vertical="0" />
-					<control progid="DecalControls.Checkbox" name="chkArmorUntinkedOnly" left="16" top="136" width="200" height="24" text="Untinked only" />
+					<control progid="DecalControls.Checkbox" name="armorUntinkedOnlyChk" left="16" top="136" width="200" height="24" text="Untinked only" />
 					<control progid="DecalControls.PushButton" name="armorSBtn" left="16" top="168" width="80" height="16" text="Quicktarget" />
 					<control progid="DecalControls.PushButton" name="armorTBtn" left="136" top="168" width="80" height="16" textcolor="16777215" text="Target" />
+				</control>
+
+			</page>
+
+			<page label="Accessory">
+				<control progid="DecalControls.FixedLayout" clipped="">
+					<control progid="DecalControls.StaticText" name="accsStyleLbl" left="16" top="8" width="200" height="16" text="Coverage" />
+					<control progid="DecalControls.Choice" name="accsStyleCho" left="16" top="28" width="200" height="19" />
+					<control progid="DecalControls.StaticText" name="accsMinWieldLbl" left="16" top="56" width="120" height="16" text="Minimum lvl wield req" />
+					<control progid="DecalControls.StaticText" name="accsMinWield" left="160" top="56" width="32" height="16" text="" />
+					<control progid="DecalControls.Slider" name="accsMinWieldSld" left="16" top="76" width="200" height="16" minimum="1" maximum="275" textcolor="0" vertical="0" />
+					<control progid="DecalControls.StaticText" name="accsMaxWieldLbl" left="16" top="100" width="120" height="16" text="Maximum lvl wield req" />
+					<control progid="DecalControls.StaticText" name="accsMaxWield" left="160" top="100" width="32" height="16" text="" />
+					<control progid="DecalControls.Slider" name="accsMaxWieldSld" left="16" top="120" width="200" height="16" minimum="1" maximum="275" textcolor="0" vertical="0" />
+					<control progid="DecalControls.Checkbox" name="accsUntinkedOnlyChk" left="16" top="136" width="200" height="24" text="Untinked only" />
+					<control progid="DecalControls.PushButton" name="accsSBtn" left="16" top="168" width="80" height="16" text="Quicktarget" />
+					<control progid="DecalControls.PushButton" name="accsTBtn" left="136" top="168" width="80" height="16" textcolor="16777215" text="Target" />
 				</control>
 
 			</page>
