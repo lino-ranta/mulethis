@@ -257,5 +257,25 @@ namespace MuleThis
             }
         }
 
+        static List<string> accsStyleChoices;
+        static void GenerateAccsStyleChoices()
+        {
+            if (accsStyleChoices == null)
+            {
+                accsStyleChoices = new List<string>
+                {
+                    "<any>",
+                    AccessoryWorldObjectMatcher.ANY_JEWELRY,
+                    AccessoryWorldObjectMatcher.ANY_CLOTHES,
+                    "Bracelet",
+                    "Necklace",
+                    "Ring",
+                    "Trinket",
+                    "Pants",
+                    "Shirt"
+                };
+            }
+        }
+
     }
 }

@@ -24,26 +24,27 @@ namespace MuleThis
         private void initSettings()
         {
             /* INITIALISE THE STATE OF VIEW ELEMENTS HERE */
-            chkFromMainOnly.Checked = pluginSettings.chkFromMainOnly;
-            chkWeaponUntinkedOnly.Checked = pluginSettings.chkWeaponUntinkedOnly;
-            chkArmorUntinkedOnly.Checked = pluginSettings.chkArmorUntinkedOnly;
+            fromMainOnlyChk.Checked = pluginSettings.fromMainOnlyChk;
+            weaponUntinkedOnlyChk.Checked = pluginSettings.weaponUntinkedOnlyChk;
+            armorUntinkedOnlyChk.Checked = pluginSettings.armorUntinkedOnlyChk;
+            accsUntinkedOnlyChk.Checked = pluginSettings.accsUntinkedOnlyChk;
         }
     }
 
     public class PluginSettings
     {
         /* ADD PUBLIC PROPERTIES FOR PERSISTABLE SETTINGS HERE */
-        public bool chkFromMainOnly;
-        public bool chkWeaponUntinkedOnly;
-        public bool chkArmorUntinkedOnly;
+        public bool fromMainOnlyChk;
+        public bool weaponUntinkedOnlyChk;
+        public bool armorUntinkedOnlyChk;
+        public bool accsUntinkedOnlyChk;
 
         public PluginSettings()
         {
-            chkFromMainOnly = true;
-            chkWeaponUntinkedOnly = true;
-            chkArmorUntinkedOnly = true;
-
-            /* SET DEFAULTS FOR THE PROPERTIES HERE */
+            fromMainOnlyChk = true;
+            weaponUntinkedOnlyChk = true;
+            armorUntinkedOnlyChk = true;
+            accsUntinkedOnlyChk = true;
         }
 
         public static PluginSettings load(string file, string errorLogFile)

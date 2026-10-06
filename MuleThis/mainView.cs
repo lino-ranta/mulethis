@@ -17,7 +17,7 @@ namespace MuleThis
         static MyClasses.MetaViewWrappers.IStaticText quicktargetLbl;
         static MyClasses.MetaViewWrappers.IStaticText quicktarget;
         static MyClasses.MetaViewWrappers.IButton CancelAllBtn;
-        static MyClasses.MetaViewWrappers.ICheckBox chkFromMainOnly;
+        static MyClasses.MetaViewWrappers.ICheckBox fromMainOnlyChk;
         static MyClasses.MetaViewWrappers.IStaticText scrollsLbl;
         static MyClasses.MetaViewWrappers.IButton scrollsSBtn;
         static MyClasses.MetaViewWrappers.IButton scrollsTBtn;
@@ -57,9 +57,20 @@ namespace MuleThis
         static MyClasses.MetaViewWrappers.ICombo weaponSkillCho;
         static MyClasses.MetaViewWrappers.IStaticText weaponDmgLbl;
         static MyClasses.MetaViewWrappers.ICombo weaponDmgCho;
-        static MyClasses.MetaViewWrappers.ICheckBox chkWeaponUntinkedOnly;
+        static MyClasses.MetaViewWrappers.ICheckBox weaponUntinkedOnlyChk;
         static MyClasses.MetaViewWrappers.IButton weaponSBtn;
         static MyClasses.MetaViewWrappers.IButton weaponTBtn;
+        static MyClasses.MetaViewWrappers.IStaticText accsStyleLbl;
+        static MyClasses.MetaViewWrappers.ICombo accsStyleCho;
+        static MyClasses.MetaViewWrappers.IStaticText accsMinWieldLbl;
+        static MyClasses.MetaViewWrappers.IStaticText accsMinWield;
+        static MyClasses.MetaViewWrappers.ISlider accsMinWieldSld;
+        static MyClasses.MetaViewWrappers.IStaticText accsMaxWieldLbl;
+        static MyClasses.MetaViewWrappers.IStaticText accsMaxWield;
+        static MyClasses.MetaViewWrappers.ISlider accsMaxWieldSld;
+        static MyClasses.MetaViewWrappers.ICheckBox accsUntinkedOnlyChk;
+        static MyClasses.MetaViewWrappers.IButton accsSBtn;
+        static MyClasses.MetaViewWrappers.IButton accsTBtn;
         static MyClasses.MetaViewWrappers.IStaticText armorStyleLbl;
         static MyClasses.MetaViewWrappers.ICombo armorStyleCho;
         static MyClasses.MetaViewWrappers.IStaticText armorMinWieldLbl;
@@ -68,7 +79,7 @@ namespace MuleThis
         static MyClasses.MetaViewWrappers.IStaticText armorMaxWieldLbl;
         static MyClasses.MetaViewWrappers.IStaticText armorMaxWield;
         static MyClasses.MetaViewWrappers.ISlider armorMaxWieldSld;
-        static MyClasses.MetaViewWrappers.ICheckBox chkArmorUntinkedOnly;
+        static MyClasses.MetaViewWrappers.ICheckBox armorUntinkedOnlyChk;
         static MyClasses.MetaViewWrappers.IButton armorSBtn;
         static MyClasses.MetaViewWrappers.IButton armorTBtn;
         static MyClasses.MetaViewWrappers.IStaticText byNameMatchLbl;
@@ -91,7 +102,7 @@ namespace MuleThis
             quicktargetLbl = (MyClasses.MetaViewWrappers.IStaticText)View["quicktargetLbl"];
             quicktarget = (MyClasses.MetaViewWrappers.IStaticText)View["quicktarget"];
             CancelAllBtn = (MyClasses.MetaViewWrappers.IButton)View["CancelAllBtn"];
-            chkFromMainOnly = (MyClasses.MetaViewWrappers.ICheckBox)View["chkFromMainOnly"];
+            fromMainOnlyChk = (MyClasses.MetaViewWrappers.ICheckBox)View["fromMainOnlyChk"];
             scrollsLbl = (MyClasses.MetaViewWrappers.IStaticText)View["scrollsLbl"];
             scrollsSBtn = (MyClasses.MetaViewWrappers.IButton)View["scrollsSBtn"];
             scrollsTBtn = (MyClasses.MetaViewWrappers.IButton)View["scrollsTBtn"];
@@ -131,9 +142,20 @@ namespace MuleThis
             weaponSkillCho = (MyClasses.MetaViewWrappers.ICombo)View["weaponSkillCho"];
             weaponDmgLbl = (MyClasses.MetaViewWrappers.IStaticText)View["weaponDmgLbl"];
             weaponDmgCho = (MyClasses.MetaViewWrappers.ICombo)View["weaponDmgCho"];
-            chkWeaponUntinkedOnly = (MyClasses.MetaViewWrappers.ICheckBox)View["chkWeaponUntinkedOnly"];
+            weaponUntinkedOnlyChk = (MyClasses.MetaViewWrappers.ICheckBox)View["weaponUntinkedOnlyChk"];
             weaponSBtn = (MyClasses.MetaViewWrappers.IButton)View["weaponSBtn"];
             weaponTBtn = (MyClasses.MetaViewWrappers.IButton)View["weaponTBtn"];
+            accsStyleLbl = (MyClasses.MetaViewWrappers.IStaticText)View["accsStyleLbl"];
+            accsStyleCho = (MyClasses.MetaViewWrappers.ICombo)View["accsStyleCho"];
+            accsMinWieldLbl = (MyClasses.MetaViewWrappers.IStaticText)View["accsMinWieldLbl"];
+            accsMinWield = (MyClasses.MetaViewWrappers.IStaticText)View["accsMinWield"];
+            accsMinWieldSld = (MyClasses.MetaViewWrappers.ISlider)View["accsMinWieldSld"];
+            accsMaxWieldLbl = (MyClasses.MetaViewWrappers.IStaticText)View["accsMaxWieldLbl"];
+            accsMaxWield = (MyClasses.MetaViewWrappers.IStaticText)View["accsMaxWield"];
+            accsMaxWieldSld = (MyClasses.MetaViewWrappers.ISlider)View["accsMaxWieldSld"];
+            accsUntinkedOnlyChk = (MyClasses.MetaViewWrappers.ICheckBox)View["accsUntinkedOnlyChk"];
+            accsSBtn = (MyClasses.MetaViewWrappers.IButton)View["accsSBtn"];
+            accsTBtn = (MyClasses.MetaViewWrappers.IButton)View["accsTBtn"];
             armorStyleLbl = (MyClasses.MetaViewWrappers.IStaticText)View["armorStyleLbl"];
             armorStyleCho = (MyClasses.MetaViewWrappers.ICombo)View["armorStyleCho"];
             armorMinWieldLbl = (MyClasses.MetaViewWrappers.IStaticText)View["armorMinWieldLbl"];
@@ -142,7 +164,7 @@ namespace MuleThis
             armorMaxWieldLbl = (MyClasses.MetaViewWrappers.IStaticText)View["armorMaxWieldLbl"];
             armorMaxWield = (MyClasses.MetaViewWrappers.IStaticText)View["armorMaxWield"];
             armorMaxWieldSld = (MyClasses.MetaViewWrappers.ISlider)View["armorMaxWieldSld"];
-            chkArmorUntinkedOnly = (MyClasses.MetaViewWrappers.ICheckBox)View["chkArmorUntinkedOnly"];
+            armorUntinkedOnlyChk = (MyClasses.MetaViewWrappers.ICheckBox)View["armorUntinkedOnlyChk"];
             armorSBtn = (MyClasses.MetaViewWrappers.IButton)View["armorSBtn"];
             armorTBtn = (MyClasses.MetaViewWrappers.IButton)View["armorTBtn"];
             byNameMatchLbl = (MyClasses.MetaViewWrappers.IStaticText)View["byNameMatchLbl"];
@@ -164,7 +186,7 @@ namespace MuleThis
             quicktargetLbl = null;
             quicktarget = null;
             CancelAllBtn = null;
-            chkFromMainOnly = null;
+            fromMainOnlyChk = null;
             scrollsLbl = null;
             scrollsSBtn = null;
             scrollsTBtn = null;
@@ -204,7 +226,7 @@ namespace MuleThis
             weaponSkillCho = null;
             weaponDmgLbl = null;
             weaponDmgCho = null;
-            chkWeaponUntinkedOnly = null;
+            weaponUntinkedOnlyChk = null;
             weaponSBtn = null;
             weaponTBtn = null;
             armorStyleLbl = null;
@@ -215,9 +237,20 @@ namespace MuleThis
             armorMaxWieldLbl = null;
             armorMaxWield = null;
             armorMaxWieldSld = null;
-            chkArmorUntinkedOnly = null;
+            armorUntinkedOnlyChk = null;
             armorSBtn = null;
             armorTBtn = null;
+            accsStyleLbl = null;
+            accsStyleCho = null;
+            accsMinWieldLbl = null;
+            accsMinWield = null;
+            accsMinWieldSld = null;
+            accsMaxWieldLbl = null;
+            accsMaxWield = null;
+            accsMaxWieldSld = null;
+            accsUntinkedOnlyChk = null;
+            accsSBtn = null;
+            accsTBtn = null;
             byNameMatchLbl = null;
             byNameMatchTxt = null;
             byNameNoMatchLbl = null;
@@ -264,6 +297,13 @@ namespace MuleThis
                 armorStyleCho.Add(kv.Key);
             }
 
+            GenerateAccsStyleChoices();
+            accsStyleCho.Clear();
+            foreach (string accsStyleChoice in accsStyleChoices)
+            {
+                accsStyleCho.Add(accsStyleChoice);
+            }
+
             foreach (IButton btn in (new List<IButton> { scrollsSBtn, moneySBtn, partialSBtn, fullSBtn, diSBtn, raresSBtn, level8SBtn }))
             {
                 btn.Hit += new EventHandler(btn_Hit);
@@ -290,6 +330,13 @@ namespace MuleThis
             armorSBtn.Hit += new EventHandler(armorBtn_Hit);
             armorTBtn.Hit += new EventHandler(armorBtn_Hit);
 
+            accsMinWieldSld.Change += new EventHandler<MVIndexChangeEventArgs>(workSld_Change);
+            accsMaxWieldSld.Change += new EventHandler<MVIndexChangeEventArgs>(workSld_Change);
+            accsMaxWieldSld.Position = 275;
+
+            accsSBtn.Hit += new EventHandler(accsBtn_Hit);
+            accsTBtn.Hit += new EventHandler(accsBtn_Hit);
+
             byNameSBtn.Hit += new EventHandler(byNameBtn_Hit);
             byNameTBtn.Hit += new EventHandler(byNameBtn_Hit);
 
@@ -297,8 +344,11 @@ namespace MuleThis
             maxworkSld.Change += new EventHandler<MVIndexChangeEventArgs>(workSld_Change);
             maxworkSld.Position = 10;
 
-            chkFromMainOnly.Change += new EventHandler<MVCheckBoxChangeEventArgs>(chkFromMainOnly_Change);
-            chkWeaponUntinkedOnly.Change += new EventHandler<MVCheckBoxChangeEventArgs>(chkWeaponUntinkedOnly_Change);
+            fromMainOnlyChk.Change += new EventHandler<MVCheckBoxChangeEventArgs>(fromMainOnlyChk_Change);
+
+            accsUntinkedOnlyChk.Change += new EventHandler<MVCheckBoxChangeEventArgs>(accsUntinkedOnlyChk_Change);
+            armorUntinkedOnlyChk.Change += new EventHandler<MVCheckBoxChangeEventArgs>(armorUntinkedOnlyChk_Change);
+            weaponUntinkedOnlyChk.Change += new EventHandler<MVCheckBoxChangeEventArgs>(weaponUntinkedOnlyChk_Change);
 
             targetBtn.Hit += new EventHandler(targetBtn_Hit);
 
@@ -307,29 +357,38 @@ namespace MuleThis
             ViewUpdateTexts();
         }
 
-        void chkWeaponUntinkedOnly_Change(object sender, MVCheckBoxChangeEventArgs e)
+        void weaponUntinkedOnlyChk_Change(object sender, MVCheckBoxChangeEventArgs e)
         {
             if (pluginSettings != null)
             {
-                pluginSettings.chkWeaponUntinkedOnly = chkWeaponUntinkedOnly.Checked;
+                pluginSettings.weaponUntinkedOnlyChk = weaponUntinkedOnlyChk.Checked;
                 saveSettings();
             }
         }
 
-        void chkArmorUntinkedOnly_Change(object sender, MVCheckBoxChangeEventArgs e)
+        void armorUntinkedOnlyChk_Change(object sender, MVCheckBoxChangeEventArgs e)
         {
             if (pluginSettings != null)
             {
-                //pluginSettings.chkArmorUntinkedOnly = chkArmorUntinkedOnly.Checked;
+                pluginSettings.armorUntinkedOnlyChk = armorUntinkedOnlyChk.Checked;
                 saveSettings();
             }
         }
 
-        void chkFromMainOnly_Change(object sender, MVCheckBoxChangeEventArgs e)
+        void accsUntinkedOnlyChk_Change(object sender, MVCheckBoxChangeEventArgs e)
         {
             if (pluginSettings != null)
             {
-                pluginSettings.chkFromMainOnly = chkFromMainOnly.Checked;
+                pluginSettings.accsUntinkedOnlyChk = accsUntinkedOnlyChk.Checked;
+                saveSettings();
+            }
+        }
+
+        void fromMainOnlyChk_Change(object sender, MVCheckBoxChangeEventArgs e)
+        {
+            if (pluginSettings != null)
+            {
+                pluginSettings.fromMainOnlyChk = fromMainOnlyChk.Checked;
                 saveSettings();
             }
         }
@@ -350,6 +409,12 @@ namespace MuleThis
         {
             MuleTarget t = ((IButton)sender).Id == armorSBtn.Id ? targetS : targetT;
             handItems(t, prepareHandArmor);
+        }
+
+        void accsBtn_Hit(object sender, EventArgs e)
+        {
+            MuleTarget t = ((IButton)sender).Id == accsSBtn.Id ? targetS : targetT;
+            handItems(t, prepareHandAccs);
         }
 
         void workSld_Change(object sender, MVIndexChangeEventArgs e)
@@ -452,6 +517,9 @@ namespace MuleThis
         {
             target.Text = targetT == null ? NOTARGET : targetT.Name;
             quicktarget.Text = targetS == null ? NOTARGET : targetS.Name;
+
+            accsMinWield.Text = String.Format("{0}", accsMinWieldSld.Position);
+            accsMaxWield.Text = String.Format("{0}", accsMaxWieldSld.Position);
 
             armorMinWield.Text = String.Format("{0}", armorMinWieldSld.Position);
             armorMaxWield.Text = String.Format("{0}", armorMaxWieldSld.Position);
